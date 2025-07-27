@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iqra School - Natiijo Arday</title>
+  <style>
+    body {
+      background: #f5f5a0;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: yellow;
+      border-radius: 20px;
+      padding: 30px;
+      width: 300px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      border: none;
+      font-weight: bold;
+      text-align: center;
+    }
+    button {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Iqra School</h1>
+    <input type="text" id="studentId" placeholder="ID Student">
+    <button onclick="searchStudent()">Raadi</button>
+    <div class="result" id="resultBox"></div>
+  </div>
+
+  <script>
+    const students = [
+      { id: "B202501", name: "Muse Awees Haji Nor", total: 70, grade: "Gudbay" },
+      { id: "B202502", name: "Abdisalam Awees Haji Nor", total: 79, grade: "Gudbay" },
+      { id: "B202503", name: "Mohamed Hussen Mohamed", total: 60, grade: "Haray" },
+      { id: "B202404", name: "Imran Adan Hassan", total: 71, grade: "Gudbay" },
+      { id: "B202005", name: "Abdimalik Ali Isxaq", total: 50, grade: "Haray" },
+      { id: "B202306", name: "Hassan Abukar Ali", total: 74, grade: "Gudbay" },
+      { id: "B202707", name: "Aniso Ayanle Mohamed", total: 92, grade: "Gudbay" },
+      { id: "B202308", name: "Ayan Ahmed Mohamed", total: 66, grade: "Haray" },
+      { id: "B2021009", name: "Lul Hussein Mohamed", total: 98, grade: "Gudbay" },
+      { id: "B2029010", name: "Ardo Mohamed Hassan", total: 97, grade: "Gudbay" },
+      { id: "B2028011", name: "Abdifatah Mohamed Hassan", total: 93, grade: "Gudbay" },
+      { id: "B2029012", name: "Hanad Abdirahman Mohamed", total: 100, grade: "Gudbay" }
+    ];
+
+    function searchStudent() {
+      const id = document.getElementById("studentId").value.trim().toUpperCase();
+      const resultBox = document.getElementById("resultBox");
+      const student = students.find(s => s.id === id);
+
+      if (student) {
+        resultBox.innerHTML = `
+          <strong>Magaca:</strong> ${student.name}<br>
+          <strong>Natiijo:</strong> ${student.total}<br>
+          <strong>Xaalad:</strong> ${student.grade}
+        `;
+      } else {
+        resultBox.innerHTML = "<span style='color: red;'>Ardayga lama helin!</span>";
+      }
+    }
+  </script>
+</body>
+  </html>
